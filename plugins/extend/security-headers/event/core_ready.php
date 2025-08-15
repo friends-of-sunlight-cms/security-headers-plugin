@@ -1,6 +1,14 @@
 <?php
 
+use Sunlight\Util\Environment;
+
 return function () {
+
+    // do not send headers on CLI
+    if(Environment::isCli()){
+        return;
+    }
+
     $config = $this->getConfig();
 
     // header Strict-Transport-Security - require HTTPS
