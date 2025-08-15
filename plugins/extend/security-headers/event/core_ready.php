@@ -1,5 +1,6 @@
 <?php
 
+use Kuria\RequestInfo\RequestInfo;
 use Sunlight\Util\Environment;
 
 return function () {
@@ -14,7 +15,7 @@ return function () {
     // header Strict-Transport-Security - require HTTPS
     if (
         $config['strict_transport_security_enabled']
-        && isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] == 'on'
+        && RequestInfo::isSecure()
     ) {
         $hstsHeader = 'max-age=' . $config['strict_transport_security_max_age'];
         if ($config['strict_transport_security_include_subdomains']) {
