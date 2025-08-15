@@ -26,7 +26,7 @@ or
 
 Configuration
 *************
-You will put these API keys in the plugin settings in the administration.
+More detailed header options settings
 
 ::
 
